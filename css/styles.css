@@ -5,6 +5,8 @@
   --accent-text-color-second: #ffffff;
   --designe-color: #afb1b8;
   --font-ral: "Raleway", sans-serif;
+  --time: 250ms;
+  --cubic: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -110,11 +112,23 @@ img {
 }
 
 .header-link {
+  position: relative;
   color: var(--title-text-color);
 }
 
 .current {
   color: var(--accent-text-color-first);
+}
+
+.current::after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: var(--accent-text-color-first);
+  border-radius: 2px;
 }
 
 .header-link,
@@ -136,7 +150,8 @@ img {
 .footer-tel,
 .project-link,
 .team-soc-link,
-.footer-soc-link {
+.footer-soc-link,
+.projects-discript {
   text-decoration: none;
 }
 
@@ -272,13 +287,16 @@ img {
   margin: -1px;
 }
 
-.features-subtitle {
-  margin-bottom: 10px;
-
+.features-subtitle,
+.photo-subtitle {
   font-size: 14px;
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
+}
+
+.features-subtitle {
+  margin-bottom: 10px;
   color: var(--title-text-color);
 }
 
@@ -307,8 +325,19 @@ img {
 
 .photo-item {
   flex-basis: calc((100% - 60px) / 3);
+  position: relative;
 }
 
+.photo-subtitle {
+  position: absolute;
+  bottom: 0;
+  width: 370px;
+  padding: 27px 0;
+  margin: 0 auto;
+  text-align: center;
+  background-color: rgba(47, 48, 58, 0.8);
+  color: var(--accent-text-color-second);
+}
 /* --------------TEAM-------------------- */
 
 .team {
@@ -537,7 +566,17 @@ img {
 /* --------------PROJECTS-------------------- */
 
 .projects-item {
+  position: relative;
   width: calc((100% - 60px) / 3);
+}
+
+.projects-item::before {
+  position: absolute;
+  content: "";
+  width: 370px;
+  height: 294px;
+  background-color: rgba(33, 150, 243, 0.9);
+  opacity: 0;
 }
 
 .projects-wrap {
@@ -551,6 +590,22 @@ img {
 .projects-item:hover,
 .projects-item:focus {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  /* opacity: 1; */
+}
+
+.projects-item:hover::before,
+.projects-item:focus::before {
+  opacity: 1;
+}
+
+.projects-discript {
+position: absolute;
+top:0;
+padding: 63px 24px;
+font-size: 18px;
+  line-height: 1.56;
+    letter-spacing: 0.03em;
+  color: var(--accent-text-color-second);
 }
 
 .projects-subtitle {
