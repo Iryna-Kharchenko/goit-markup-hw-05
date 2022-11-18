@@ -594,8 +594,8 @@ img {
     opacity var(--time) var(--cubic);
 }
 
-.projects-discript:hover,
-.projects-discript:focus {
+.project-link:hover .projects-discript,
+.project-link:focus .projects-discript {
   transform: translateY(0%);
   opacity: 1;
 }
